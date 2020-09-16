@@ -64,7 +64,7 @@ foreach ($files as $file) {
 
                 $timestamp = strtotime(array_shift($matches));
 
-                $date = date("Y-m-d", $timestamp);
+                $date = date("Y-m-d_H-i-s", $timestamp);
 
                 $year = date("Y", $timestamp);
 
@@ -86,7 +86,7 @@ foreach ($files as $file) {
 
             $timestamp = strtotime($metadata['exif.DateTimeOriginal']);
 
-            $date = date("Y-m-d", $timestamp);
+            $date = date("Y-m-d_H-i-s", $timestamp);
 
             $year = date("Y", $timestamp);
 
@@ -96,7 +96,7 @@ foreach ($files as $file) {
 
                 $timestamp = strtotime(end($matches));
 
-                $date = date("Y-m-d", $timestamp);
+                $date = date("Y-m-d_H-i-s", $timestamp);
 
                 $year = date("Y", $timestamp);
 
@@ -107,7 +107,7 @@ foreach ($files as $file) {
 
                 $timestamp = strtotime(end($matches));
 
-                $date = date("Y-m-d", $timestamp);
+                $date = date("Y-m-d_H-i-s", $timestamp);
 
                 $year = date("Y", $timestamp);
 
@@ -118,7 +118,7 @@ foreach ($files as $file) {
 
                 $timestamp = strtotime(array_shift($matches));
 
-                $date = date("Y-m-d", $timestamp);
+                $date = date("Y-m-d_H-i-s", $timestamp);
 
                 $year = date("Y", $timestamp);
 
