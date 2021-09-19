@@ -33,6 +33,7 @@ final class Sorter
         $files = $this->getFiles();
 
         dump('All files: '.count($files));
+        dump('Dist '.exec("find {$this->catalogUnsortedPhotos} -type f | wc -l"));
 
         foreach ($this->getFiles() as $fileName) {
             $filePath = sprintf(
@@ -41,17 +42,14 @@ final class Sorter
                 $fileName
             );
 
-            if (exif_imagetype($filePath)) {
-                $file = new Image($filePath);
-            } else {
-                $file = new Video($filePath);
-            }
+            $file = exif_imagetype($filePath)
+                ? new Image($filePath)
+                : new Video($filePath);
 
             dump($file->getName());
             $this->copyFile($file, $filePath);
         }
 
-        //dump('Dist '.exec('find ./source-fotos -type f | wc -l'));
         dump('END!');
 
         return true;

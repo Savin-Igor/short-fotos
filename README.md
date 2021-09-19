@@ -5,3 +5,5 @@
 php ./vendor/bin/grumphp run
 
 ./vendor/bin/phpunit --testdox tests
+
+git commit -m 'refactoring' --no-verify

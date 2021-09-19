@@ -141,4 +141,5 @@ vendor/
 composer.phar
 /vendor/
 /fotos
-sorted-fotos/*
+*-fotos/*
+fotos*

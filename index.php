@@ -12,8 +12,8 @@ require_once __DIR__.'/vendor/autoload.php';
 use SortPhotosByDate\Sorter;
 
 try {
-    $unsortedPhotosDir = __DIR__.'/fotos';
-    $copyToDir = __DIR__.'/sorted-fotos';
+    $unsortedPhotosDir = __DIR__.'/fotos2';
+    $copyToDir = __DIR__.'/sorted-fotos2';
 
     $sorter = new Sorter($unsortedPhotosDir, $copyToDir);
 

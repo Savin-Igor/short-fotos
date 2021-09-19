@@ -3,7 +3,7 @@ grumphp:
         phpcsfixer:
             allow_risky: true
             cache_file: './.php-cs-fixer.cache'
-#            config: './.php-cs-fixer.php'
+            config: './.php-cs-fixer.php'
 #            rules: [
 #                    '@Symfony',
 #                    '@PSR12',
