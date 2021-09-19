@@ -1,0 +1,53 @@
+[19-Sep-2021 07:36:15 UTC] PHP Fatal error:  Uncaught TypeError: exif_read_data(): Argument #2 ($required_sections) must be of type ?string, int given in /home/igors/develop/short-fotos/test.php:16
+Stack trace:
+#0 /home/igors/develop/short-fotos/test.php(16): exif_read_data()
+#1 {main}
+  thrown in /home/igors/develop/short-fotos/test.php on line 16
+[19-Sep-2021 07:44:20 UTC] PHP Warning:  exif_read_data(): Unable to open file in /home/igors/develop/short-fotos/src/File.php on line 15
+[19-Sep-2021 07:44:20 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/igors/develop/short-fotos/src/File.php on line 18
+[19-Sep-2021 07:44:20 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/igors/develop/short-fotos/src/File.php on line 19
+[19-Sep-2021 07:44:20 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/igors/develop/short-fotos/src/File.php on line 20
+[19-Sep-2021 07:45:56 UTC] PHP Warning:  exif_read_data(): Unable to open file in /home/igors/develop/short-fotos/src/File.php on line 15
+[19-Sep-2021 07:45:56 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/igors/develop/short-fotos/src/File.php on line 18
+[19-Sep-2021 07:45:56 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/igors/develop/short-fotos/src/File.php on line 19
+[19-Sep-2021 07:45:56 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/igors/develop/short-fotos/src/File.php on line 20
+[19-Sep-2021 07:46:21 UTC] PHP Warning:  Undefined array key "FILE.MimeType" in /home/igors/develop/short-fotos/src/File.php on line 18
+[19-Sep-2021 07:46:21 UTC] PHP Warning:  Undefined array key "FILE.FileName" in /home/igors/develop/short-fotos/src/File.php on line 19
+[19-Sep-2021 07:46:21 UTC] PHP Warning:  Undefined array key "FILE.FileDateTime" in /home/igors/develop/short-fotos/src/File.php on line 20
+[19-Sep-2021 07:46:37 UTC] PHP Warning:  Undefined array key "FILE.MimeType" in /home/igors/develop/short-fotos/src/File.php on line 19
+[19-Sep-2021 07:46:37 UTC] PHP Warning:  Undefined array key "FILE.FileName" in /home/igors/develop/short-fotos/src/File.php on line 20
+[19-Sep-2021 07:46:37 UTC] PHP Warning:  Undefined array key "FILE.FileDateTime" in /home/igors/develop/short-fotos/src/File.php on line 21
+[19-Sep-2021 07:47:03 UTC] PHP Warning:  Undefined array key "FILE.MimeType" in /home/igors/develop/short-fotos/src/File.php on line 19
+[19-Sep-2021 07:47:03 UTC] PHP Warning:  Undefined array key "FILE.FileName" in /home/igors/develop/short-fotos/src/File.php on line 20
+[19-Sep-2021 07:47:03 UTC] PHP Warning:  Undefined array key "FILE.FileDateTime" in /home/igors/develop/short-fotos/src/File.php on line 21
+[19-Sep-2021 07:47:51 UTC] PHP Warning:  Undefined array key "FILE.MimeType" in /home/igors/develop/short-fotos/src/File.php on line 19
+[19-Sep-2021 07:47:51 UTC] PHP Warning:  Undefined array key "FILE.FileName" in /home/igors/develop/short-fotos/src/File.php on line 20
+[19-Sep-2021 07:47:51 UTC] PHP Warning:  Undefined array key "FILE.FileDateTime" in /home/igors/develop/short-fotos/src/File.php on line 21
+[19-Sep-2021 07:48:26 UTC] PHP Warning:  Undefined array key "FILE.MimeType" in /home/igors/develop/short-fotos/src/File.php on line 21
+[19-Sep-2021 07:48:26 UTC] PHP Warning:  Undefined array key "FILE.FileName" in /home/igors/develop/short-fotos/src/File.php on line 22
+[19-Sep-2021 07:48:26 UTC] PHP Warning:  Undefined array key "FILE.FileDateTime" in /home/igors/develop/short-fotos/src/File.php on line 23
+[19-Sep-2021 07:56:36 UTC] PHP Warning:  exif_read_data(VID_20210515_112540.mp4): File not supported in /home/igors/develop/short-fotos/src/File.php on line 17
+[19-Sep-2021 07:56:36 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/igors/develop/short-fotos/src/File.php on line 18
+[19-Sep-2021 07:56:36 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/igors/develop/short-fotos/src/File.php on line 18
+[19-Sep-2021 08:27:53 UTC] PHP Warning:  preg_match(): Unknown modifier '{' in /home/igors/develop/short-fotos/src/Video.php on line 17
+[19-Sep-2021 09:44:56 UTC] PHP Warning:  copy(): The second argument to copy() function cannot be a directory in /home/igors/develop/short-fotos/src/Sorter.php on line 90
+[19-Sep-2021 09:47:12 UTC] PHP Warning:  copy(): The second argument to copy() function cannot be a directory in /home/igors/develop/short-fotos/src/Sorter.php on line 91
+[19-Sep-2021 09:52:16 UTC] PHP Warning:  copy(): The second argument to copy() function cannot be a directory in /home/igors/develop/short-fotos/src/Sorter.php on line 94
+[19-Sep-2021 10:04:10 UTC] PHP Warning:  require(/home/igors/develop/short-fotos/vendor/composer/../../config.php): Failed to open stream: No such file or directory in /home/igors/develop/short-fotos/vendor/composer/autoload_real.php on line 71
+[19-Sep-2021 10:04:10 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/igors/develop/short-fotos/vendor/composer/../../config.php' (include_path='.:/usr/share/pear:/usr/share/php:/usr/share/pear:/usr/share/php') in /home/igors/develop/short-fotos/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home/igors/develop/short-fotos/vendor/composer/autoload_real.php(61): composerRequire180bd830cb131e2afdedcf500e8fe5f9()
+#1 /home/igors/develop/short-fotos/vendor/autoload.php(7): ComposerAutoloaderInit180bd830cb131e2afdedcf500e8fe5f9::getLoader()
+#2 /home/igors/develop/short-fotos/vendor/phpro/grumphp/bin/grumphp(13): require_once('...')
+#3 /home/igors/develop/short-fotos/vendor/phpro/grumphp/bin/grumphp(51): {closure}()
+#4 {main}
+  thrown in /home/igors/develop/short-fotos/vendor/composer/autoload_real.php on line 71
+[19-Sep-2021 10:04:17 UTC] PHP Warning:  require(/home/igors/develop/short-fotos/vendor/composer/../../config.php): Failed to open stream: No such file or directory in /home/igors/develop/short-fotos/vendor/composer/autoload_real.php on line 71
+[19-Sep-2021 10:04:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/igors/develop/short-fotos/vendor/composer/../../config.php' (include_path='.:/usr/share/pear:/usr/share/php:/usr/share/pear:/usr/share/php') in /home/igors/develop/short-fotos/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home/igors/develop/short-fotos/vendor/composer/autoload_real.php(61): composerRequire180bd830cb131e2afdedcf500e8fe5f9()
+#1 /home/igors/develop/short-fotos/vendor/autoload.php(7): ComposerAutoloaderInit180bd830cb131e2afdedcf500e8fe5f9::getLoader()
+#2 /home/igors/develop/short-fotos/vendor/phpro/grumphp/bin/grumphp(13): require_once('...')
+#3 /home/igors/develop/short-fotos/vendor/phpro/grumphp/bin/grumphp(51): {closure}()
+#4 {main}
+  thrown in /home/igors/develop/short-fotos/vendor/composer/autoload_real.php on line 71

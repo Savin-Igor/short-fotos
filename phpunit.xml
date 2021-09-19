@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+<testsuites>
+    <testsuite name="Tests HttpClient">
+<!--        <directory suffix="Test.php">./tests/HttpClient</directory>-->
+    </testsuite>
+</testsuites>
+<filter>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+        <directory suffix=".php">./app</directory>
+    </whitelist>
+</filter>
+<php>
+    <env name="API_BASE_URL" value="http://public.instalment.i.savins.vh2.rpwb01dvef.lv.dyninno.lan"/>
+</php>
+</phpunit>
