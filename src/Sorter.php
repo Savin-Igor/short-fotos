@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SortPhotosByDate;
 
+use Exception;
 use RuntimeException;
 
 final class Sorter
@@ -35,23 +36,21 @@ final class Sorter
         dump('All files: '.count($files));
         dump('Dist '.exec("find {$this->catalogUnsortedPhotos} -type f | wc -l"));
 
-        foreach ($this->getFiles() as $fileName) {
-            $filePath = sprintf(
-                '%s/%s',
-                $this->catalogUnsortedPhotos,
-                $fileName
-            );
+        foreach ($this->getFiles() as $index => $fileName) {
+            try {
+                $filePath = $this->getFilePath($fileName);
 
-            $file = exif_imagetype($filePath)
-                ? new Image($filePath)
-                : new Video($filePath);
+                $file = exif_imagetype($filePath)
+                    ? new Image($filePath)
+                    : new Video($filePath);
 
-            dump($file->getName());
-            $this->copyFile($file, $filePath);
+                $this->copyFile($file, $filePath);
+            } catch (Exception $exception) {
+                dump($exception->getMessage());
+            }
         }
 
         dump('END!');
-
         return true;
     }
 
@@ -105,5 +104,14 @@ final class Sorter
         }
 
         return true;
+    }
+
+    private function getFilePath(string $fileName): string
+    {
+        return sprintf(
+            '%s/%s',
+            $this->catalogUnsortedPhotos,
+            $fileName
+        );
     }
 }

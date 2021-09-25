@@ -28,7 +28,11 @@ final class Image implements FileInterface
         list(, $extension) = explode('/', $exif['FILE']['MimeType']);
         $this->extension = $extension;
 
-        $this->dateTime = Carbon::parse($exif['FILE']['FileDateTime']);
+        if (preg_match('/(?<dateTime>\d{8})/iu', $filePath, $matches)) {
+            $this->dateTime = Carbon::parse($matches['dateTime']);
+        } else {
+            $this->dateTime = Carbon::parse($exif['FILE']['FileDateTime']);
+        }
     }
 
     public function getName(): string
