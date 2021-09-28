@@ -18,5 +18,5 @@ try {
     $sorter = new Sorter($unsortedPhotosDir, $copyToDir);
     $sorter->process();
 } catch (Throwable $throwable) {
-    var_dump($throwable);
+    printf("[%s] %s \n", $throwable::class, $throwable->getMessage());
 }

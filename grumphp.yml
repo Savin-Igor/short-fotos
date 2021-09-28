@@ -41,7 +41,7 @@ grumphp:
             exclude: []
             exclude_name: []
 #            exclude_path: [
-#                    app/Orchid/Examples/*
+#                    src/Examples/*
 #            ]
             extensions: []
             hint: false
