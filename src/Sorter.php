@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SortPhotosByDate;
 
 use Exception;
-use RuntimeException;
+use SortPhotosByDate\Exception\FileSystemException;
 
 final class Sorter
 {
@@ -17,7 +17,7 @@ final class Sorter
         string $copyToDirectory
     ) {
         if (!is_dir($catalogUnsortedPhotos)) {
-            throw new RuntimeException("There {$catalogUnsortedPhotos} is no such directory");
+            throw FileSystemException::noSuchDirectory($catalogUnsortedPhotos);
         }
 
         $this->catalogUnsortedPhotos = $catalogUnsortedPhotos;
@@ -31,12 +31,7 @@ final class Sorter
 
     public function process(): bool
     {
-        $files = $this->getFiles();
-
-        dump('All files: '.count($files));
-        dump('Dist '.exec("find {$this->catalogUnsortedPhotos} -type f | wc -l"));
-
-        foreach ($this->getFiles() as $index => $fileName) {
+        foreach ($this->getFiles() as $fileName) {
             try {
                 $filePath = $this->getFilePath($fileName);
 
@@ -46,11 +41,10 @@ final class Sorter
 
                 $this->copyFile($file, $filePath);
             } catch (Exception $exception) {
-                dump($exception->getMessage());
+                printf("%s \n", $exception->getMessage());
             }
         }
 
-        dump('END!');
         return true;
     }
 
@@ -60,12 +54,16 @@ final class Sorter
     private function getFiles(): array
     {
         $files = scandir($this->catalogUnsortedPhotos);
-
-        if (false === $files || 0 === count($files)) {
-            throw new RuntimeException("The directory {$this->catalogUnsortedPhotos} is empty");
+        if (false === $files) {
+            throw FileSystemException::directoryIsEmpty($this->catalogUnsortedPhotos);
         }
 
-        return array_filter($files, fn (string $file) => !in_array($file, ['.', '..', '.DS_Store', '.temp'], true));
+        $files = array_filter($files, fn (string $file) => !in_array($file, ['.', '..', '.DS_Store', '.temp'], true));
+        if (0 === count($files)) {
+            throw FileSystemException::directoryIsEmpty($this->catalogUnsortedPhotos);
+        }
+
+        return $files;
     }
 
     private function makeDir(string $dir): bool
@@ -75,7 +73,7 @@ final class Sorter
         }
 
         if (!mkdir($dir, 0777, true)) {
-            throw new RuntimeException("Failed to create a folder {$dir}");
+            throw FileSystemException::failedCreateFolder($dir);
         }
 
         return true;
@@ -96,11 +94,11 @@ final class Sorter
 
         $newFile = sprintf('%s/%s', $copyToDir, $file->getName());
         if (file_exists($newFile)) {
-            throw new RuntimeException("The file {$newFile} already exists");
+            throw FileSystemException::fileExists($newFile);
         }
 
         if (!copy($sourceFile, $newFile)) {
-            throw new RuntimeException("Couldn't copy the file {$file->getName()}");
+            throw FileSystemException::notCopyFile($file->getName());
         }
 
         return true;

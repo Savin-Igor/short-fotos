@@ -13,8 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.0",
-        "nesbot/carbon": "^2.53",
-        "symfony/var-dumper": "6.0.x-dev"
+        "nesbot/carbon": "^2.53"
     },
     "require-dev": {
         "phpro/grumphp": "dev-master",
