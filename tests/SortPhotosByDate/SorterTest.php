@@ -7,7 +7,7 @@ namespace SortPhotosByDate;
 use Exception;
 use ReflectionClass;
 use PHPUnit\Framework\TestCase;
-use SortPhotosByDate\Exception\FileSystemException;
+use SortPhotosByDate\Exception\SortPhotosException;
 
 final class SorterTest extends TestCase
 {
@@ -19,13 +19,13 @@ final class SorterTest extends TestCase
         $dir = __DIR__.'/../a-non-existent-directory';
         $copyToDir = __DIR__.'/../copy-directory';
 
-        $reflection = new ReflectionClass(FileSystemException::class);
+        $reflection = new ReflectionClass(SortPhotosException::class);
         /**
          * @psalm-var string $message
          */
         $message = $reflection->getConstant('NO_SUCH_DIRECTORY');
 
-        $this->expectException(FileSystemException::class);
+        $this->expectException(SortPhotosException::class);
         $this->expectErrorMessage(sprintf($message, $dir));
 
         new Sorter($dir, $copyToDir);
@@ -51,13 +51,13 @@ final class SorterTest extends TestCase
         $copyToDir = __DIR__.'/../copy-directory';
 
         mkdir($dir, 0777);
-        $reflection = new ReflectionClass(FileSystemException::class);
+        $reflection = new ReflectionClass(SortPhotosException::class);
         /**
          * @psalm-var string $message
          */
         $message = $reflection->getConstant('DIRECTORY_IS_EMPTY');
 
-        $this->expectException(FileSystemException::class);
+        $this->expectException(SortPhotosException::class);
         $this->expectErrorMessage(sprintf($message, $dir));
 
         try {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SortPhotosByDate;
 
 use Exception;
-use SortPhotosByDate\Exception\FileSystemException;
+use SortPhotosByDate\Exception\SortPhotosException;
 
 final class Sorter
 {
@@ -17,7 +17,7 @@ final class Sorter
         string $copyToDirectory
     ) {
         if (!is_dir($catalogUnsortedPhotos)) {
-            throw FileSystemException::noSuchDirectory($catalogUnsortedPhotos);
+            throw SortPhotosException::noSuchDirectory($catalogUnsortedPhotos);
         }
 
         $this->catalogUnsortedPhotos = $catalogUnsortedPhotos;
@@ -55,12 +55,12 @@ final class Sorter
     {
         $files = scandir($this->catalogUnsortedPhotos);
         if (false === $files) {
-            throw FileSystemException::directoryIsEmpty($this->catalogUnsortedPhotos);
+            throw SortPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
         }
 
         $files = array_filter($files, fn (string $file) => !in_array($file, ['.', '..', '.DS_Store', '.temp'], true));
         if (0 === count($files)) {
-            throw FileSystemException::directoryIsEmpty($this->catalogUnsortedPhotos);
+            throw SortPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
         }
 
         return $files;
@@ -73,7 +73,7 @@ final class Sorter
         }
 
         if (!mkdir($dir, 0777, true)) {
-            throw FileSystemException::failedCreateFolder($dir);
+            throw SortPhotosException::failedCreateFolder($dir);
         }
 
         return true;
@@ -95,11 +95,11 @@ final class Sorter
 
         $newFile = sprintf('%s/%s', $copyToDir, $file->getName());
         if (file_exists($newFile)) {
-            throw FileSystemException::fileExists($newFile);
+            throw SortPhotosException::fileExists($newFile);
         }
 
         if (!copy($sourceFile, $newFile)) {
-            throw FileSystemException::notCopyFile($file->getName());
+            throw SortPhotosException::notCopyFile($file->getName());
         }
 
         return true;

@@ -6,7 +6,7 @@ namespace SortPhotosByDate;
 
 use Carbon\Carbon;
 
-use InvalidArgumentException;
+use SortPhotosByDate\Exception\SortPhotosException;
 
 final class Image implements FileInterface
 {
@@ -20,7 +20,7 @@ final class Image implements FileInterface
         $exif = exif_read_data($filePath, '0', true);
 
         if (false === $exif || false === array_key_exists('FILE', $exif)) {
-            throw new InvalidArgumentException("Failed to extract file {$filePath} metadata");
+            throw SortPhotosException::failedExtractMetadata($filePath);
         }
 
         $this->name = $exif['FILE']['FileName'];
