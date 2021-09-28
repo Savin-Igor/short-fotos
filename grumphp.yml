@@ -47,12 +47,12 @@ grumphp:
             hint: false
             ignore_funcs: []
             ignore_numbers: []
-            ignore_strings: []
+            ignore_strings: ['tests/*']
             strings: false
             triggered_by: ['php']
         psalm:
             config: psalm.xml
-            ignore_patterns: [ ]
+            ignore_patterns: ['']
             no_cache: false
             report: null
             output_format: compact

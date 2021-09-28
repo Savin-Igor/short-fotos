@@ -11,9 +11,6 @@ use SortPhotosByDate\Exception\SortPhotosException;
 
 final class SorterTest extends TestCase
 {
-    protected $backupStaticAttributes = null;
-    protected $runTestInSeparateProcess = null;
-
     public function testOfNonExistentDirectoryWithFiles(): void
     {
         $dir = __DIR__.'/../a-non-existent-directory';
