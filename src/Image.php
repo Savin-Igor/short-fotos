@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace SortPhotosByDate;
 
 use Carbon\Carbon;
-
 use SortPhotosByDate\Exception\SortPhotosException;
 
 final class Image implements FileInterface

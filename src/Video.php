@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace SortPhotosByDate;
 
-use Carbon\Carbon;
-
 use SplFileInfo;
+use Carbon\Carbon;
 
 final class Video implements FileInterface
 {

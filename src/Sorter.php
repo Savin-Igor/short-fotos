@@ -66,20 +66,18 @@ final class Sorter
         return $files;
     }
 
-    private function makeDir(string $dir): bool
+    private function makeDir(string $dir): void
     {
         if (is_dir($dir)) {
-            return true;
+            return;
         }
 
         if (!mkdir($dir, 0777, true)) {
             throw SortPhotosException::failedCreateFolder($dir);
         }
-
-        return true;
     }
 
-    private function copyFile(FileInterface $file, string $sourceFile): bool
+    private function copyFile(FileInterface $file, string $sourceFile): void
     {
         $copyToDir = sprintf(
             '%s/%s/%s/%s',
@@ -101,8 +99,6 @@ final class Sorter
         if (!copy($sourceFile, $newFile)) {
             throw SortPhotosException::notCopyFile($file->getName());
         }
-
-        return true;
     }
 
     private function getFilePath(string $fileName): string
