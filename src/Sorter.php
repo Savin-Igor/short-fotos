@@ -82,9 +82,10 @@ final class Sorter
     private function copyFile(FileInterface $file, string $sourceFile): bool
     {
         $copyToDir = sprintf(
-            '%s/%s/%s',
+            '%s/%s/%s/%s',
             $this->copyToDirectory,
             $file->getType(),
+            $file->getDateTime()->year,
             $file->getDateTime()->format('Y-m')
         );
 
