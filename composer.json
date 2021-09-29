@@ -16,13 +16,13 @@
         "nesbot/carbon": "^2.53"
     },
     "require-dev": {
-        "phpro/grumphp": "dev-master",
-        "friendsofphp/php-cs-fixer": "^3.1",
-        "sebastian/phpcpd": "^6.0",
         "ergebnis/composer-normalize": "dev-main",
+        "friendsofphp/php-cs-fixer": "^3.1",
+        "phpro/grumphp": "^1.5",
         "phpstan/phpstan": "0.12.x-dev",
         "phpunit/phpunit": "^9.5",
         "povils/phpmnd": "^2.4",
+        "sebastian/phpcpd": "^6.0",
         "squizlabs/php_codesniffer": "4.0.x-dev",
         "vimeo/psalm": "4.x-dev"
     },

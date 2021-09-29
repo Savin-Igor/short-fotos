@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f04007fe7eb008ed18c2fa43989ad65",
+    "content-hash": "af62a826bd5db67ffd47dfa0c5c150a5",
     "packages": [
         {
             "name": "nesbot/carbon",
@@ -3072,7 +3072,7 @@
         },
         {
             "name": "phpro/grumphp",
-            "version": "dev-master",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpro/grumphp.git",
@@ -3152,7 +3152,6 @@
                 "symplify/easy-coding-standard": "Lets GrumPHP check coding standard.",
                 "vimeo/psalm": "Lets GrumPHP discover errors in your code without running it."
             },
-            "default-branch": true,
             "bin": [
                 "bin/grumphp"
             ],
@@ -6937,7 +6936,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "phpro/grumphp": 20,
         "ergebnis/composer-normalize": 20,
         "phpstan/phpstan": 20,
         "squizlabs/php_codesniffer": 20,

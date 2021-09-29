@@ -141,3 +141,5 @@ composer.phar
 /fotos
 *-fotos/*
 fotos*
+
+tools/*
