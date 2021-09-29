@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SortingPhotosByDate;
+namespace SortingPhotosByDate\Tests;
 
 use Exception;
 use ReflectionClass;
+use SortingPhotosByDate\Sorter;
 use PHPUnit\Framework\TestCase;
 use SortingPhotosByDate\Exception\SortingPhotosException;
 

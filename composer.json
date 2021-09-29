@@ -33,7 +33,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SortingPhotosByDate\\Tests\\": "tests/"
+            "SortingPhotosByDate\\Tests\\": "tests/src"
         }
     },
     "config": {

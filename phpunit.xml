@@ -9,8 +9,8 @@
          processIsolation="false"
          stopOnFailure="false">
 <testsuites>
-    <testsuite name="Tests SortingPhotosByDate">
-        <directory suffix="Test.php">./tests/SortingPhotosByDate</directory>
+    <testsuite name="Tests Sorting Photos By Date">
+        <directory suffix="Test.php">./tests/src</directory>
     </testsuite>
 </testsuites>
 <filter>
