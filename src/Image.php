@@ -17,7 +17,6 @@ final class Image implements FileInterface
     public function __construct(string $filePath)
     {
         $exif = exif_read_data($filePath, '0', true);
-
         if (false === $exif || false === array_key_exists('FILE', $exif)) {
             throw SortPhotosException::failedExtractMetadata($filePath);
         }
