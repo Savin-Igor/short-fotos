@@ -67,16 +67,21 @@ final class Sorter
     private function makeDirIfNotExist(string $dir): void
     {
         if (is_dir($dir)) {
-            $permissions = fileperms($dir);
-            if (self::PERMISSIONS !== substr(sprintf('%o', $permissions), -4)) {
-                chmod($dir, self::PERMISSIONS);
-            }
+            $this->checkPermissionsDirAndIfNotAdd($dir);
 
             return;
         }
 
         if (!mkdir($dir, self::PERMISSIONS, true)) {
             throw SortingPhotosException::failedCreateFolder($dir);
+        }
+    }
+
+    private function checkPermissionsDirAndIfNotAdd(string $dir): void
+    {
+        $permissions = fileperms($dir);
+        if (self::PERMISSIONS !== substr(sprintf('%o', $permissions), -4)) {
+            chmod($dir, self::PERMISSIONS);
         }
     }
 
