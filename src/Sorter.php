@@ -9,6 +9,7 @@ use SortPhotosByDate\Exception\SortPhotosException;
 
 final class Sorter
 {
+    private const PERMISSIONS = 0777;
     private string $catalogUnsortedPhotos;
     private string $copyToDirectory;
 
@@ -38,7 +39,7 @@ final class Sorter
 
                 $this->copyFile($file, $filePath);
             } catch (Exception $exception) {
-                printf("%s \n", $exception->getMessage());
+                printf("[%s] %s \n", $exception::class, $exception->getMessage());
             }
         }
 
@@ -66,10 +67,15 @@ final class Sorter
     private function makeDirIfNotExist(string $dir): void
     {
         if (is_dir($dir)) {
+            $permissions = fileperms($dir);
+            if (self::PERMISSIONS !== substr(sprintf('%o', $permissions), -4)) {
+                chmod($dir, self::PERMISSIONS);
+            }
+
             return;
         }
 
-        if (!mkdir($dir, 0777, true)) {
+        if (!mkdir($dir, self::PERMISSIONS, true)) {
             throw SortPhotosException::failedCreateFolder($dir);
         }
     }
