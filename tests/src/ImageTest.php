@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SortingPhotosByDate;
+namespace SortingPhotosByDate\Tests;
 
 use Carbon\Carbon;
 use ReflectionClass;
+use SortingPhotosByDate\Image;
 use PHPUnit\Framework\TestCase;
 use SortingPhotosByDate\Exception\SortingPhotosException;
 
