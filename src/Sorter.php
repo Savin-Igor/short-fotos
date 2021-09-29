@@ -47,7 +47,7 @@ final class Sorter
     }
 
     /**
-     * @return array<int, string>
+     * @psalm-return array<int, string>
      */
     private function getFiles(): array
     {
