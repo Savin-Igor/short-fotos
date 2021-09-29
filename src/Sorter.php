@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SortPhotosByDate;
+namespace SortingPhotosByDate;
 
 use Exception;
-use SortPhotosByDate\Exception\SortPhotosException;
+use SortingPhotosByDate\Exception\SortingPhotosException;
 
 final class Sorter
 {
@@ -19,7 +19,7 @@ final class Sorter
         string $copyToDirectory
     ) {
         if (!is_dir($catalogUnsortedPhotos)) {
-            throw SortPhotosException::noSuchDirectory($catalogUnsortedPhotos);
+            throw SortingPhotosException::noSuchDirectory($catalogUnsortedPhotos);
         }
 
         $this->makeDirIfNotExist($copyToDirectory);
@@ -53,12 +53,12 @@ final class Sorter
     {
         $files = scandir($this->catalogUnsortedPhotos);
         if (false === $files) {
-            throw SortPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
+            throw SortingPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
         }
 
         $files = array_filter($files, fn (string $file) => !in_array($file, ['.', '..', '.DS_Store', '.temp'], true));
         if (0 === count($files)) {
-            throw SortPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
+            throw SortingPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
         }
 
         return $files;
@@ -76,7 +76,7 @@ final class Sorter
         }
 
         if (!mkdir($dir, self::PERMISSIONS, true)) {
-            throw SortPhotosException::failedCreateFolder($dir);
+            throw SortingPhotosException::failedCreateFolder($dir);
         }
     }
 
@@ -94,11 +94,11 @@ final class Sorter
 
         $newFile = sprintf('%s/%s', $copyToDir, $file->getName());
         if (file_exists($newFile)) {
-            throw SortPhotosException::fileExists($newFile);
+            throw SortingPhotosException::fileExists($newFile);
         }
 
         if (!copy($sourceFile, $newFile)) {
-            throw SortPhotosException::notCopyFile($file->getName());
+            throw SortingPhotosException::notCopyFile($file->getName());
         }
     }
 
