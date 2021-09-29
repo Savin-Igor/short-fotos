@@ -9,7 +9,7 @@
          processIsolation="false"
          stopOnFailure="false">
 <testsuites>
-    <testsuite name="Tests HttpClient">
+    <testsuite name="Tests SortPhotosByDate">
         <directory suffix="Test.php">./tests/SortPhotosByDate</directory>
     </testsuite>
 </testsuites>
@@ -18,7 +18,4 @@
         <directory suffix=".php">./src</directory>
     </whitelist>
 </filter>
-<php>
-    <env name="API_BASE_URL" value="http://public.instalment.i.savins.vh2.rpwb01dvef.lv.dyninno.lan"/>
-</php>
 </phpunit>
