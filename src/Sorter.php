@@ -10,8 +10,9 @@ use SortPhotosByDate\Exception\SortPhotosException;
 final class Sorter
 {
     private const PERMISSIONS = 0777;
-    private string $catalogUnsortedPhotos;
+
     private string $copyToDirectory;
+    private string $catalogUnsortedPhotos;
 
     public function __construct(
         string $catalogUnsortedPhotos,
@@ -21,10 +22,9 @@ final class Sorter
             throw SortPhotosException::noSuchDirectory($catalogUnsortedPhotos);
         }
 
-        $this->catalogUnsortedPhotos = $catalogUnsortedPhotos;
-
         $this->makeDirIfNotExist($copyToDirectory);
         $this->copyToDirectory = $copyToDirectory;
+        $this->catalogUnsortedPhotos = $catalogUnsortedPhotos;
     }
 
     public function process(): bool

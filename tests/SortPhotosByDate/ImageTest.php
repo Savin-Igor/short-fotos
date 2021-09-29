@@ -23,18 +23,12 @@ final class ImageTest extends TestCase
         $this->setImage(new Image(__DIR__.'/../source-files/file-2021-09-28.jpg'));
     }
 
-    /**
-     * @param Image $image
-     */
-    public function setImage(Image $image): void
+    private function setImage(Image $image): void
     {
         $this->image = $image;
     }
 
-    /**
-     * @param Carbon $dateTime
-     */
-    public function setDateTime(Carbon $dateTime): void
+    private function setDateTime(Carbon $dateTime): void
     {
         $this->dateTime = $dateTime;
     }
