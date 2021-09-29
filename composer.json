@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SortPhotosByDate\\": "src"
+            "SortingPhotosByDate\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SortPhotosByDate\\Tests\\": "tests/"
+            "SortingPhotosByDate\\Tests\\": "tests/"
         }
     },
     "config": {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SortPhotosByDate;
+namespace SortingPhotosByDate;
 
 use Carbon\Carbon;
 use ReflectionClass;
 use PHPUnit\Framework\TestCase;
-use SortPhotosByDate\Exception\SortPhotosException;
+use SortingPhotosByDate\Exception\SortingPhotosException;
 
 final class ImageTest extends TestCase
 {
@@ -62,13 +62,13 @@ final class ImageTest extends TestCase
         $this->markTestSkipped('There is no file available without metadata');
         $invalidFile = __DIR__.'/../source-files/no_exif.jpg';
 
-        $reflection = new ReflectionClass(SortPhotosException::class);
+        $reflection = new ReflectionClass(SortingPhotosException::class);
         /**
          * @psalm-var string $message
          */
         $message = $reflection->getConstant('FAILED_EXTRACT_METADATA');
 
-        $this->expectException(SortPhotosException::class);
+        $this->expectException(SortingPhotosException::class);
         $this->expectErrorMessage(sprintf($message, $invalidFile));
 
         new Image($invalidFile);

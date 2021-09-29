@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SortPhotosByDate\Exception;
+namespace SortingPhotosByDate\Exception;
 
 use RuntimeException;
 
-final class SortPhotosException extends RuntimeException
+final class SortingPhotosException extends RuntimeException
 {
     private const NO_SUCH_DIRECTORY = 'There %s is no such directory';
     private const DIRECTORY_IS_EMPTY = 'The directory %s is empty';

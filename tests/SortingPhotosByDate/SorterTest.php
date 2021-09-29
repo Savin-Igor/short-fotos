@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SortPhotosByDate;
+namespace SortingPhotosByDate;
 
 use Exception;
 use ReflectionClass;
 use PHPUnit\Framework\TestCase;
-use SortPhotosByDate\Exception\SortPhotosException;
+use SortingPhotosByDate\Exception\SortingPhotosException;
 
 final class SorterTest extends TestCase
 {
@@ -16,13 +16,13 @@ final class SorterTest extends TestCase
         $dir = __DIR__.'/../a-non-existent-directory';
         $copyToDir = __DIR__.'/../copy-directory';
 
-        $reflection = new ReflectionClass(SortPhotosException::class);
+        $reflection = new ReflectionClass(SortingPhotosException::class);
         /**
          * @psalm-var string $message
          */
         $message = $reflection->getConstant('NO_SUCH_DIRECTORY');
 
-        $this->expectException(SortPhotosException::class);
+        $this->expectException(SortingPhotosException::class);
         $this->expectErrorMessage(sprintf($message, $dir));
 
         new Sorter($dir, $copyToDir);
@@ -48,13 +48,13 @@ final class SorterTest extends TestCase
         $copyToDir = __DIR__.'/../copy-directory';
 
         mkdir($dir, 0777);
-        $reflection = new ReflectionClass(SortPhotosException::class);
+        $reflection = new ReflectionClass(SortingPhotosException::class);
         /**
          * @psalm-var string $message
          */
         $message = $reflection->getConstant('DIRECTORY_IS_EMPTY');
 
-        $this->expectException(SortPhotosException::class);
+        $this->expectException(SortingPhotosException::class);
         $this->expectErrorMessage(sprintf($message, $dir));
 
         try {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SortPhotosByDate;
+namespace SortingPhotosByDate;
 
 use Carbon\Carbon;
-use SortPhotosByDate\Exception\SortPhotosException;
+use SortingPhotosByDate\Exception\SortingPhotosException;
 
 final class Image implements FileInterface
 {
@@ -18,7 +18,7 @@ final class Image implements FileInterface
     {
         $exif = exif_read_data($filePath, '0', true);
         if (false === $exif || false === array_key_exists('FILE', $exif)) {
-            throw SortPhotosException::failedExtractMetadata($filePath);
+            throw SortingPhotosException::failedExtractMetadata($filePath);
         }
 
         $this->name = $exif['FILE']['FileName'];

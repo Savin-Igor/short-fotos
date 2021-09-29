@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SortPhotosByDate;
+namespace SortingPhotosByDate;
 
 use Carbon\Carbon;
 
