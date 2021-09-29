@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace SortingPhotosByDate;
 
-use Exception;
 use SortingPhotosByDate\Exception\SortingPhotosException;
 
 final class Sorter
@@ -38,7 +37,7 @@ final class Sorter
                     : new Video($filePath);
 
                 $this->copyFile($file, $filePath);
-            } catch (Exception $exception) {
+            } catch (SortingPhotosException $exception) {
                 printf("[%s] %s \n", $exception::class, $exception->getMessage());
             }
         }
