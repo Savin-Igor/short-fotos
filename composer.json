@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.0",
+        "php": ">=8",
         "nesbot/carbon": "^2.53"
     },
     "require-dev": {
