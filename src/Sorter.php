@@ -22,10 +22,7 @@ final class Sorter
 
         $this->catalogUnsortedPhotos = $catalogUnsortedPhotos;
 
-        if (!is_dir($copyToDirectory)) {
-            $this->makeDir($copyToDirectory);
-        }
-
+        $this->makeDirIfNotExist($copyToDirectory);
         $this->copyToDirectory = $copyToDirectory;
     }
 
@@ -66,7 +63,7 @@ final class Sorter
         return $files;
     }
 
-    private function makeDir(string $dir): void
+    private function makeDirIfNotExist(string $dir): void
     {
         if (is_dir($dir)) {
             return;
@@ -87,9 +84,7 @@ final class Sorter
             $file->getDateTime()->format('Y-m')
         );
 
-        if (!is_dir($copyToDir)) {
-            $this->makeDir($copyToDir);
-        }
+        $this->makeDirIfNotExist($copyToDir);
 
         $newFile = sprintf('%s/%s', $copyToDir, $file->getName());
         if (file_exists($newFile)) {
