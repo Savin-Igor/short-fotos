@@ -1,0 +1,44 @@
+{
+    "name": "igors/sort-photos-by-date",
+    "type": "package",
+    "description":"Sort Photos By Date",
+    "license": ["proprietary"],
+    "authors": [
+        {
+            "name": "Igors Savins",
+            "email": "igor.savin@inbox.lv"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.0",
+        "nesbot/carbon": "^2.53"
+    },
+    "require-dev": {
+        "phpro/grumphp": "dev-master",
+        "friendsofphp/php-cs-fixer": "^3.1",
+        "sebastian/phpcpd": "^6.0",
+        "ergebnis/composer-normalize": "dev-main",
+        "phpstan/phpstan": "0.12.x-dev",
+        "phpunit/phpunit": "^9.5",
+        "povils/phpmnd": "^2.4",
+        "squizlabs/php_codesniffer": "4.0.x-dev",
+        "vimeo/psalm": "4.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "SortPhotosByDate\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SortPhotosByDate\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
