@@ -32,3 +32,8 @@ try {
 }
 
 ```
+
+#### API documentation
+
+[You can familiarize yourself with the library interfaces in this documentation](https://savin-igor.github.io/sorting-photos/)
+
