@@ -19,7 +19,7 @@ final class ImageTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->setDateTime(Carbon::parse('2021-09-28'));
+        $this->setDateTime(Carbon::parse('2021-09-29'));
         $this->setImage(new Image(__DIR__.'/../source-files/file-2021-09-28.jpg'));
     }
 
