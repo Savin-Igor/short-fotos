@@ -7,8 +7,8 @@
 >
     <title>Sorting Photos By Date</title>
     <paths>
-        <output>build/website/docs</output>
-        <cache>build/cache</cache>
+        <output>docs</output>
+        <cache>docs/cache</cache>
     </paths>
     <version number="3.0.0">
         <folder>latest</folder>
