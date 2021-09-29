@@ -1,8 +1,8 @@
 {
-    "name": "igors/sort-photos-by-date",
+    "name": "igors/sorting-photos-by-date",
     "type": "package",
-    "description":"Sort Photos By Date",
-    "license": ["proprietary"],
+    "description":"Sorting Photos By Date",
+    "license": ["MIT"],
     "authors": [
         {
             "name": "Igors Savins",
