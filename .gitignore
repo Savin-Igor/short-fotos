@@ -1,6 +1,27 @@
 
-# Created by https://www.gitignore.io/api/macos,vagrant,phpstorm
-# Edit at https://www.gitignore.io/?templates=macos,vagrant,phpstorm
+### Project ###
+/fotos
+*-fotos/*
+fotos*
+reasons.md
+
+# Log files (if you are creating logs in debug mode, uncomment this)
+*.log
+
+### Composer ###
+composer.phar
+/vendor/
+vendor/
+
+### PHP-CS-Fixer ###
+/.php-cs-fixer.cache
+
+### Psalm ###
+/.psalm/cache
+
+### PHPUnit ###
+/.phpunit.cache
+.phpunit.result.cache
 
 ### macOS ###
 # General
@@ -121,28 +142,3 @@ fabric.properties
 # Markdown Navigator plugin
 .idea/**/markdown-navigator.xml
 .idea/**/markdown-navigator/
-
-### Vagrant ###
-# General
-.vagrant/
-
-# Log files (if you are creating logs in debug mode, uncomment this)
-# *.log
-
-### Vagrant Patch ###
-*.box
-
-# End of https://www.gitignore.io/api/macos,vagrant,phpstorm
-
-
-### Composer ###
-composer.phar
-/vendor/
-vendor/
-
-### Project ###
-/fotos
-*-fotos/*
-fotos*
-tools/*
-reasons.md
