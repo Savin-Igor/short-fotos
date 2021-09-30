@@ -134,10 +134,14 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/macos,vagrant,phpstorm
 
-vendor/
+
 ### Composer ###
 composer.phar
 /vendor/
+vendor/
+
+### Project ###
 /fotos
 *-fotos/*
 fotos*
+reasons.md

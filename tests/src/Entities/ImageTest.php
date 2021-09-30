@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SortingPhotosByDate\Tests;
+namespace SortingPhotosByDate\Tests\Entities;
 
 use Carbon\Carbon;
 use ReflectionClass;
-use SortingPhotosByDate\Image;
 use PHPUnit\Framework\TestCase;
-use SortingPhotosByDate\Exception\SortingPhotosException;
+use SortingPhotosByDate\Entities\Image;
+use SortingPhotosByDate\Exceptions\SortingPhotosException;
 
 final class ImageTest extends TestCase
 {
@@ -20,18 +20,9 @@ final class ImageTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->setDateTime(Carbon::parse('2021-09-29'));
-        $this->setImage(new Image(__DIR__.'/../source-files/file-2021-09-28.jpg'));
-    }
-
-    private function setImage(Image $image): void
-    {
-        $this->image = $image;
-    }
-
-    private function setDateTime(Carbon $dateTime): void
-    {
-        $this->dateTime = $dateTime;
+        $file = getenv('DIRECTORY_OF_TEST_FILES').'/test-files/file-2021-09-28.jpg';
+        $this->dateTime = Carbon::parse('2021-09-29');
+        $this->image = new Image($file);
     }
 
     public function testGetDateTime(): void
@@ -61,7 +52,7 @@ final class ImageTest extends TestCase
     public function testInvalidFile(): void
     {
         $this->markTestSkipped('There is no file available without metadata');
-        $invalidFile = __DIR__.'/../source-files/no_exif.jpg';
+        $invalidFile = getenv('DIRECTORY_OF_TEST_FILES').'/no_exif.jpg';
 
         $reflection = new ReflectionClass(SortingPhotosException::class);
         /**

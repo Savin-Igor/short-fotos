@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SortingPhotosByDate\Exception;
+namespace SortingPhotosByDate\Exceptions;
 
 use RuntimeException;
 
