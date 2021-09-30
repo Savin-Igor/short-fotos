@@ -5,14 +5,14 @@ We take a catalog with photos and videos. We indicate where we want to move it. 
 
 ##### Example
 
-Sample code from the index php file (Run from the console - php index.php):
+Sample code from the index php file (run from the console - php index.php):
 
 ```php
 <?php
 
 declare(strict_types=1);
 
-use SortingPhotosByDate\Sorter;
+use SortingPhotosByDate\Services\Sorter;
 
 require_once __DIR__.'/vendor/autoload.php';
 
