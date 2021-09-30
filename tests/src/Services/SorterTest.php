@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace SortingPhotosByDate\Tests;
+namespace SortingPhotosByDate\Tests\Services;
 
 use Exception;
 use ReflectionClass;
-use SortingPhotosByDate\Sorter;
 use PHPUnit\Framework\TestCase;
-use SortingPhotosByDate\Exception\SortingPhotosException;
+use SortingPhotosByDate\Services\Sorter;
+use SortingPhotosByDate\Exceptions\SortingPhotosException;
 
 final class SorterTest extends TestCase
 {
     public function testOfNonExistentDirectoryWithFiles(): void
     {
-        $dir = __DIR__.'/../a-non-existent-directory';
-        $copyToDir = __DIR__.'/../copy-directory';
+        $dir = getenv('DIRECTORY_OF_TEST_FILES').'/a-non-existent-directory';
+        $copyToDir = getenv('DIRECTORY_OF_TEST_FILES').'/copy-directory';
 
         $reflection = new ReflectionClass(SortingPhotosException::class);
         /**
@@ -31,8 +31,8 @@ final class SorterTest extends TestCase
 
     public function testProcess(): void
     {
-        $dir = __DIR__.'/../source-files';
-        $copyToDir = __DIR__.'/../copy-directory';
+        $dir = getenv('DIRECTORY_OF_TEST_FILES').'/test-files';
+        $copyToDir = getenv('DIRECTORY_OF_TEST_FILES').'/copy-directory';
 
         $sorter = new Sorter($dir, $copyToDir);
         $result = $sorter->process();
@@ -40,13 +40,13 @@ final class SorterTest extends TestCase
         $this->assertTrue($result);
         $this->assertDirectoryExists($copyToDir);
         $this->assertDirectoryIsReadable($copyToDir);
-        $this->rmdir($copyToDir);
+        $this->rmDir($copyToDir);
     }
 
     public function testEmptyDirectory(): void
     {
-        $dir = __DIR__.'/../empty-dir';
-        $copyToDir = __DIR__.'/../copy-directory';
+        $dir = getenv('DIRECTORY_OF_TEST_FILES').'/empty-dir';
+        $copyToDir = getenv('DIRECTORY_OF_TEST_FILES').'/copy-directory';
 
         mkdir($dir, 0777);
         $reflection = new ReflectionClass(SortingPhotosException::class);
@@ -61,18 +61,18 @@ final class SorterTest extends TestCase
         try {
             (new Sorter($dir, $copyToDir))->process();
         } catch (Exception $exception) {
-            $this->rmdir($dir);
-            $this->rmdir($copyToDir);
+            $this->rmDir($dir);
+            $this->rmDir($copyToDir);
             throw $exception;
         }
     }
 
-    private function rmdir(string $dir): void
+    private function rmDir(string $dir): void
     {
         $files = array_filter(scandir($dir), fn (string $file) => !in_array($file, ['.', '..', '.DS_Store', '.temp'], true));
         foreach ($files as $file) {
             $filePath = sprintf('%s/%s', $dir, $file);
-            is_dir($filePath) ? $this->rmdir($filePath) : unlink($filePath);
+            is_dir($filePath) ? $this->rmDir($filePath) : unlink($filePath);
         }
         rmdir($dir);
     }
