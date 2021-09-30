@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use SortingPhotosByDate\Sorter;
+use SortingPhotosByDate\Services\Sorter;
 
 require_once __DIR__.'/vendor/autoload.php';
 
