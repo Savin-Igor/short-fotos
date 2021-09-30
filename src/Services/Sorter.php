@@ -2,9 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SortingPhotosByDate;
+namespace SortingPhotosByDate\Services;
 
-use SortingPhotosByDate\Exception\SortingPhotosException;
+use SortingPhotosByDate\Entities\Image;
+use SortingPhotosByDate\Entities\Video;
+use SortingPhotosByDate\Contracts\FileInterface;
+use SortingPhotosByDate\Exceptions\SortingPhotosException;
 
 final class Sorter
 {

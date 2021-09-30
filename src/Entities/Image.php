@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SortingPhotosByDate;
+namespace SortingPhotosByDate\Entities;
 
 use Carbon\Carbon;
-use SortingPhotosByDate\Exception\SortingPhotosException;
+use SortingPhotosByDate\Contracts\FileInterface;
+use SortingPhotosByDate\Exceptions\SortingPhotosException;
 
 final class Image implements FileInterface
 {

@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SortingPhotosByDate;
+namespace SortingPhotosByDate\Entities;
 
 use SplFileInfo;
 use Carbon\Carbon;
+use SortingPhotosByDate\Contracts\FileInterface;
 
 final class Video implements FileInterface
 {
