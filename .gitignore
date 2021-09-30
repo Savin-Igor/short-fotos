@@ -23,6 +23,9 @@ vendor/
 /.phpunit.cache
 .phpunit.result.cache
 
+### Phive ###
+tools
+
 ### macOS ###
 # General
 .DS_Store
