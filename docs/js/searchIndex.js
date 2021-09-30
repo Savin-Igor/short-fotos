@@ -1,264 +1,279 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException",
-            "name": "SortingPhotosException",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003AnoSuchDirectory\u0028\u0029",
-            "name": "noSuchDirectory",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#method_noSuchDirectory"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003AdirectoryIsEmpty\u0028\u0029",
-            "name": "directoryIsEmpty",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#method_directoryIsEmpty"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003AfailedCreateFolder\u0028\u0029",
-            "name": "failedCreateFolder",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#method_failedCreateFolder"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003AfileExists\u0028\u0029",
-            "name": "fileExists",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#method_fileExists"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003AnotCopyFile\u0028\u0029",
-            "name": "notCopyFile",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#method_notCopyFile"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003AfailedExtractMetadata\u0028\u0029",
-            "name": "failedExtractMetadata",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#method_failedExtractMetadata"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003ANO_SUCH_DIRECTORY",
-            "name": "NO_SUCH_DIRECTORY",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#constant_NO_SUCH_DIRECTORY"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003ADIRECTORY_IS_EMPTY",
-            "name": "DIRECTORY_IS_EMPTY",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#constant_DIRECTORY_IS_EMPTY"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003AFAILED_CREATE_FOLDER",
-            "name": "FAILED_CREATE_FOLDER",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#constant_FAILED_CREATE_FOLDER"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003AFILE_EXISTS",
-            "name": "FILE_EXISTS",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#constant_FILE_EXISTS"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003ANOT_COPY_FILE",
-            "name": "NOT_COPY_FILE",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#constant_NOT_COPY_FILE"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception\\SortingPhotosException\u003A\u003AFAILED_EXTRACT_METADATA",
-            "name": "FAILED_EXTRACT_METADATA",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Exception-SortingPhotosException.html#constant_FAILED_EXTRACT_METADATA"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\FileInterface",
+            "fqsen": "\\SortingPhotosByDate\\Contracts\\FileInterface",
             "name": "FileInterface",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-FileInterface.html"
+            "url": "classes/SortingPhotosByDate-Contracts-FileInterface.html"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\FileInterface\u003A\u003AgetName\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Contracts\\FileInterface\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-FileInterface.html#method_getName"
+            "url": "classes/SortingPhotosByDate-Contracts-FileInterface.html#method_getName"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\FileInterface\u003A\u003AgetExtension\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Contracts\\FileInterface\u003A\u003AgetExtension\u0028\u0029",
             "name": "getExtension",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-FileInterface.html#method_getExtension"
+            "url": "classes/SortingPhotosByDate-Contracts-FileInterface.html#method_getExtension"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\FileInterface\u003A\u003AgetDateTime\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Contracts\\FileInterface\u003A\u003AgetDateTime\u0028\u0029",
             "name": "getDateTime",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-FileInterface.html#method_getDateTime"
+            "url": "classes/SortingPhotosByDate-Contracts-FileInterface.html#method_getDateTime"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\FileInterface\u003A\u003AgetType\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Contracts\\FileInterface\u003A\u003AgetType\u0028\u0029",
             "name": "getType",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-FileInterface.html#method_getType"
+            "url": "classes/SortingPhotosByDate-Contracts-FileInterface.html#method_getType"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image",
             "name": "Image",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html#method___construct"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html#method___construct"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image\u003A\u003AgetName\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html#method_getName"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html#method_getName"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image\u003A\u003AgetExtension\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image\u003A\u003AgetExtension\u0028\u0029",
             "name": "getExtension",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html#method_getExtension"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html#method_getExtension"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image\u003A\u003AgetDateTime\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image\u003A\u003AgetDateTime\u0028\u0029",
             "name": "getDateTime",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html#method_getDateTime"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html#method_getDateTime"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image\u003A\u003AgetType\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image\u003A\u003AgetType\u0028\u0029",
             "name": "getType",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html#method_getType"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html#method_getType"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image\u003A\u003ATYPE",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image\u003A\u003ATYPE",
             "name": "TYPE",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html#constant_TYPE"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html#constant_TYPE"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image\u003A\u003A\u0024name",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html#property_name"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html#property_name"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image\u003A\u003A\u0024extension",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image\u003A\u003A\u0024extension",
             "name": "extension",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html#property_extension"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html#property_extension"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Image\u003A\u003A\u0024dateTime",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Image\u003A\u003A\u0024dateTime",
             "name": "dateTime",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Image.html#property_dateTime"
+            "url": "classes/SortingPhotosByDate-Entities-Image.html#property_dateTime"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter",
-            "name": "Sorter",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#method___construct"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003Aprocess\u0028\u0029",
-            "name": "process",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#method_process"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003AgetFiles\u0028\u0029",
-            "name": "getFiles",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#method_getFiles"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003AmakeDirIfNotExist\u0028\u0029",
-            "name": "makeDirIfNotExist",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#method_makeDirIfNotExist"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003AcheckPermissionsDirAndIfNotAdd\u0028\u0029",
-            "name": "checkPermissionsDirAndIfNotAdd",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#method_checkPermissionsDirAndIfNotAdd"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003AcopyFile\u0028\u0029",
-            "name": "copyFile",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#method_copyFile"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003AgetFilePath\u0028\u0029",
-            "name": "getFilePath",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#method_getFilePath"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003APERMISSIONS",
-            "name": "PERMISSIONS",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#constant_PERMISSIONS"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003A\u0024copyToDirectory",
-            "name": "copyToDirectory",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#property_copyToDirectory"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Sorter\u003A\u003A\u0024catalogUnsortedPhotos",
-            "name": "catalogUnsortedPhotos",
-            "summary": "",
-            "url": "classes/SortingPhotosByDate-Sorter.html#property_catalogUnsortedPhotos"
-        },                {
-            "fqsen": "\\SortingPhotosByDate\\Video",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video",
             "name": "Video",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Video\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html#method___construct"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html#method___construct"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Video\u003A\u003AgetName\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html#method_getName"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html#method_getName"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Video\u003A\u003AgetExtension\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video\u003A\u003AgetExtension\u0028\u0029",
             "name": "getExtension",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html#method_getExtension"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html#method_getExtension"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Video\u003A\u003AgetDateTime\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video\u003A\u003AgetDateTime\u0028\u0029",
             "name": "getDateTime",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html#method_getDateTime"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html#method_getDateTime"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Video\u003A\u003AgetType\u0028\u0029",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video\u003A\u003AgetType\u0028\u0029",
             "name": "getType",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html#method_getType"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html#method_getType"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Video\u003A\u003ATYPE",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video\u003A\u003ATYPE",
             "name": "TYPE",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html#constant_TYPE"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html#constant_TYPE"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Video\u003A\u003A\u0024name",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html#property_name"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html#property_name"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Video\u003A\u003A\u0024extension",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video\u003A\u003A\u0024extension",
             "name": "extension",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html#property_extension"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html#property_extension"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Video\u003A\u003A\u0024dateTime",
+            "fqsen": "\\SortingPhotosByDate\\Entities\\Video\u003A\u003A\u0024dateTime",
             "name": "dateTime",
             "summary": "",
-            "url": "classes/SortingPhotosByDate-Video.html#property_dateTime"
+            "url": "classes/SortingPhotosByDate-Entities-Video.html#property_dateTime"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException",
+            "name": "SortingPhotosException",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003AnoSuchDirectory\u0028\u0029",
+            "name": "noSuchDirectory",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#method_noSuchDirectory"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003AdirectoryIsEmpty\u0028\u0029",
+            "name": "directoryIsEmpty",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#method_directoryIsEmpty"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003AfailedCreateFolder\u0028\u0029",
+            "name": "failedCreateFolder",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#method_failedCreateFolder"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003AfileExists\u0028\u0029",
+            "name": "fileExists",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#method_fileExists"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003AnotCopyFile\u0028\u0029",
+            "name": "notCopyFile",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#method_notCopyFile"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003AfailedExtractMetadata\u0028\u0029",
+            "name": "failedExtractMetadata",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#method_failedExtractMetadata"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003ANO_SUCH_DIRECTORY",
+            "name": "NO_SUCH_DIRECTORY",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#constant_NO_SUCH_DIRECTORY"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003ADIRECTORY_IS_EMPTY",
+            "name": "DIRECTORY_IS_EMPTY",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#constant_DIRECTORY_IS_EMPTY"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003AFAILED_CREATE_FOLDER",
+            "name": "FAILED_CREATE_FOLDER",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#constant_FAILED_CREATE_FOLDER"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003AFILE_EXISTS",
+            "name": "FILE_EXISTS",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#constant_FILE_EXISTS"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003ANOT_COPY_FILE",
+            "name": "NOT_COPY_FILE",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#constant_NOT_COPY_FILE"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions\\SortingPhotosException\u003A\u003AFAILED_EXTRACT_METADATA",
+            "name": "FAILED_EXTRACT_METADATA",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Exceptions-SortingPhotosException.html#constant_FAILED_EXTRACT_METADATA"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter",
+            "name": "Sorter",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#method___construct"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003Aprocess\u0028\u0029",
+            "name": "process",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#method_process"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003AgetFiles\u0028\u0029",
+            "name": "getFiles",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#method_getFiles"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003AmakeDirIfNotExist\u0028\u0029",
+            "name": "makeDirIfNotExist",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#method_makeDirIfNotExist"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003AcheckPermissionsDirAndIfNotAdd\u0028\u0029",
+            "name": "checkPermissionsDirAndIfNotAdd",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#method_checkPermissionsDirAndIfNotAdd"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003AcopyFile\u0028\u0029",
+            "name": "copyFile",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#method_copyFile"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003AgetFilePath\u0028\u0029",
+            "name": "getFilePath",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#method_getFilePath"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003APERMISSIONS",
+            "name": "PERMISSIONS",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#constant_PERMISSIONS"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003A\u0024copyToDirectory",
+            "name": "copyToDirectory",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#property_copyToDirectory"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services\\Sorter\u003A\u003A\u0024catalogUnsortedPhotos",
+            "name": "catalogUnsortedPhotos",
+            "summary": "",
+            "url": "classes/SortingPhotosByDate-Services-Sorter.html#property_catalogUnsortedPhotos"
         },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
         },                {
-            "fqsen": "\\SortingPhotosByDate\\Exception",
-            "name": "Exception",
+            "fqsen": "\\SortingPhotosByDate\\Contracts",
+            "name": "Contracts",
             "summary": "",
-            "url": "namespaces/sortingphotosbydate-exception.html"
+            "url": "namespaces/sortingphotosbydate-contracts.html"
         },                {
             "fqsen": "\\SortingPhotosByDate",
             "name": "SortingPhotosByDate",
             "summary": "",
             "url": "namespaces/sortingphotosbydate.html"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Entities",
+            "name": "Entities",
+            "summary": "",
+            "url": "namespaces/sortingphotosbydate-entities.html"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Exceptions",
+            "name": "Exceptions",
+            "summary": "",
+            "url": "namespaces/sortingphotosbydate-exceptions.html"
+        },                {
+            "fqsen": "\\SortingPhotosByDate\\Services",
+            "name": "Services",
+            "summary": "",
+            "url": "namespaces/sortingphotosbydate-services.html"
         }            ]
 );
