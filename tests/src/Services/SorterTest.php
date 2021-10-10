@@ -6,6 +6,9 @@ namespace SortingPhotosByDate\Tests\Services;
 
 use Exception;
 use ReflectionClass;
+use FilesystemIterator;
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
 use PHPUnit\Framework\TestCase;
 use SortingPhotosByDate\Services\Sorter;
 use SortingPhotosByDate\Exceptions\SortingPhotosException;
@@ -69,11 +72,25 @@ final class SorterTest extends TestCase
 
     private function rmDir(string $dir): void
     {
-        $files = array_filter(scandir($dir), fn (string $file) => !in_array($file, ['.', '..', '.DS_Store', '.temp'], true));
-        foreach ($files as $file) {
-            $filePath = sprintf('%s/%s', $dir, $file);
-            is_dir($filePath) ? $this->rmDir($filePath) : unlink($filePath);
+        $flags = FilesystemIterator::NEW_CURRENT_AND_KEY | FilesystemIterator::SKIP_DOTS;
+        $directoryIterator = new RecursiveDirectoryIterator($dir, $flags);
+        $recursiveIterator = new RecursiveIteratorIterator($directoryIterator);
+
+        while ($recursiveIterator->valid()) {
+            /**
+             * @var \SplFileInfo $fileInfo
+             */
+            $fileInfo = $recursiveIterator->current();
+            if ($fileInfo->isFile() && !$fileInfo->isDot()) {
+                unlink($fileInfo->getPathname());
+            }
+
+            if($fileInfo->isDir()) {
+                $this->rmDir($dir);
+            }
+            $directoryIterator->rewind();
         }
+
         rmdir($dir);
     }
 }

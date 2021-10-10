@@ -4,6 +4,7 @@
 *-fotos/*
 fotos*
 reasons.md
+index.php
 
 # Log files (if you are creating logs in debug mode, uncomment this)
 *.log

@@ -35,8 +35,8 @@ grumphp:
             directory: ['src']
             exclude: [vendor]
             fuzzy: false
-            min_lines: 5
-            min_tokens: 70
+            min_lines: 3
+            min_tokens: 60
             triggered_by: [ 'php' ]
         phpmnd:
             directory: 'src'

@@ -21,7 +21,7 @@ final class ImageTest extends TestCase
     protected function setUp(): void
     {
         $file = getenv('DIRECTORY_OF_TEST_FILES').'/test-files/file-2021-09-28.jpg';
-        $this->dateTime = Carbon::parse('2021-09-29');
+        $this->dateTime = Carbon::parse('2021-09-30');
         $this->image = new Image($file);
     }
 

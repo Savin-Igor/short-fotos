@@ -4,14 +4,20 @@ declare(strict_types=1);
 
 namespace SortingPhotosByDate\Services;
 
+use SplFileInfo;
+use FilesystemIterator;
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
 use SortingPhotosByDate\Entities\Image;
 use SortingPhotosByDate\Entities\Video;
+use SortingPhotosByDate\Entities\NotSupportedFile;
 use SortingPhotosByDate\Contracts\FileInterface;
 use SortingPhotosByDate\Exceptions\SortingPhotosException;
+use SortingPhotosByDate\Exceptions\FileNotSupportedException;
 
 final class Sorter
 {
-    private const PERMISSIONS = 0777;
+    private const PERMISSIONS = 0744;
 
     private string $copyToDirectory;
     private string $catalogUnsortedPhotos;
@@ -24,52 +30,57 @@ final class Sorter
             throw SortingPhotosException::noSuchDirectory($catalogUnsortedPhotos);
         }
 
-        $this->makeDirIfNotExist($copyToDirectory);
         $this->copyToDirectory = $copyToDirectory;
         $this->catalogUnsortedPhotos = $catalogUnsortedPhotos;
     }
 
     public function process(): bool
     {
-        foreach ($this->getFiles() as $fileName) {
-            try {
-                $filePath = $this->getFilePath($fileName);
+        $flags = FilesystemIterator::NEW_CURRENT_AND_KEY | FilesystemIterator::SKIP_DOTS;
+        $directoryIterator = new RecursiveDirectoryIterator($this->catalogUnsortedPhotos, $flags);
+        $recursiveIterator = new RecursiveIteratorIterator($directoryIterator);
 
-                $file = exif_imagetype($filePath)
-                    ? new Image($filePath)
-                    : new Video($filePath);
+        $fileCount = iterator_count($recursiveIterator);
+        printf('All files count %d', $fileCount);
+        match ($fileCount) {
+            0 => throw SortingPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos),
+            default => $this->makeDirIfNotExist($this->copyToDirectory),
+        };
+
+        $recursiveIterator->rewind();
+        while ($recursiveIterator->valid()) {
+            /**
+             * @var SplFileInfo $fileInfo
+             */
+            $fileInfo = $recursiveIterator->current();
+
+            $filePath = $fileInfo->getPathname();
+            list($type) = explode('/', (string) mime_content_type($filePath));
+            try {
+                $file = match ($type) {
+                    Image::TYPE => new Image($filePath),
+                    Video::TYPE => new Video($filePath),
+                    default => throw FileNotSupportedException::byType($type),
+                };
 
                 $this->copyFile($file, $filePath);
+            } catch (FileNotSupportedException $exception) {
+                $this->copyFile(new NotSupportedFile($filePath), $filePath);
+                printf("[%s] %s \n", $exception::class, $exception->getMessage());
             } catch (SortingPhotosException $exception) {
                 printf("[%s] %s \n", $exception::class, $exception->getMessage());
             }
+
+            $directoryIterator->next();
         }
 
-        return true;
-    }
-
-    /**
-     * @psalm-return array<int, string>
-     */
-    private function getFiles(): array
-    {
-        $files = scandir($this->catalogUnsortedPhotos);
-        if (false === $files) {
-            throw SortingPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
-        }
-
-        $files = array_filter($files, fn (string $file) => !in_array($file, ['.', '..', '.DS_Store', '.temp'], true));
-        if (0 === count($files)) {
-            throw SortingPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
-        }
-
-        return $files;
+        return (bool) $fileCount;
     }
 
     private function makeDirIfNotExist(string $dir): void
     {
         if (is_dir($dir)) {
-            $this->checkPermissionsDirAndIfNotAdd($dir);
+            $this->setPermissions($dir);
 
             return;
         }
@@ -79,7 +90,7 @@ final class Sorter
         }
     }
 
-    private function checkPermissionsDirAndIfNotAdd(string $dir): void
+    private function setPermissions(string $dir): void
     {
         $permissions = fileperms($dir);
         if (self::PERMISSIONS !== substr(sprintf('%o', $permissions), -4)) {
@@ -94,7 +105,7 @@ final class Sorter
             $this->copyToDirectory,
             $file->getType(),
             $file->getDateTime()->year,
-            $file->getDateTime()->format('Y-m')
+            $file->getDateTime()->month
         );
 
         $this->makeDirIfNotExist($copyToDir);
@@ -107,14 +118,5 @@ final class Sorter
         if (!copy($sourceFile, $newFile)) {
             throw SortingPhotosException::notCopyFile($file->getName());
         }
-    }
-
-    private function getFilePath(string $fileName): string
-    {
-        return sprintf(
-            '%s/%s',
-            $this->catalogUnsortedPhotos,
-            $fileName
-        );
     }
 }
