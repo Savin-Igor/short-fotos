@@ -70,9 +70,9 @@ grumphp:
             no_local_repository: false
             with_dependencies: false
             strict: false
-        phpunit:
-            config_file: ~
-            testsuite: ~
-            group: [ ]
-            always_execute: false
-            order: null
+#        phpunit:
+#            config_file: ~
+#            testsuite: ~
+#            group: [ ]
+#            always_execute: false
+#            order: null

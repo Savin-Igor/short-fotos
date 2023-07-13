@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SortingPhotosByDate\Services;
 
+use Psr\Log\LoggerInterface;
 use SortingPhotosByDate\Entities\Image;
 use SortingPhotosByDate\Entities\Video;
 use SortingPhotosByDate\Contracts\FileInterface;
@@ -15,10 +16,12 @@ final class Sorter
 
     private string $copyToDirectory;
     private string $catalogUnsortedPhotos;
+    private LoggerInterface $logger;
 
     public function __construct(
         string $catalogUnsortedPhotos,
-        string $copyToDirectory
+        string $copyToDirectory,
+        LoggerInterface $logger
     ) {
         if (!is_dir($catalogUnsortedPhotos)) {
             throw SortingPhotosException::noSuchDirectory($catalogUnsortedPhotos);
@@ -27,43 +30,52 @@ final class Sorter
         $this->makeDirIfNotExist($copyToDirectory);
         $this->copyToDirectory = $copyToDirectory;
         $this->catalogUnsortedPhotos = $catalogUnsortedPhotos;
+        $this->logger = $logger;
     }
 
     public function process(): bool
     {
-        foreach ($this->getFiles() as $fileName) {
-            try {
-                $filePath = $this->getFilePath($fileName);
-
-                $file = exif_imagetype($filePath)
-                    ? new Image($filePath)
-                    : new Video($filePath);
-
-                $this->copyFile($file, $filePath);
-            } catch (SortingPhotosException $exception) {
-                printf("[%s] %s \n", $exception::class, $exception->getMessage());
-            }
-        }
+        $this->processDirectory($this->catalogUnsortedPhotos);
 
         return true;
     }
 
-    /**
-     * @psalm-return array<int, string>
-     */
-    private function getFiles(): array
+    private function processDirectory(string $directory): void
     {
-        $files = scandir($this->catalogUnsortedPhotos);
+        $files = scandir($directory);
         if (false === $files) {
-            throw SortingPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
+            throw SortingPhotosException::directoryIsEmpty($directory);
         }
 
-        $files = array_filter($files, fn (string $file) => !in_array($file, ['.', '..', '.DS_Store', '.temp'], true));
-        if (0 === count($files)) {
-            throw SortingPhotosException::directoryIsEmpty($this->catalogUnsortedPhotos);
-        }
+        foreach ($files as $fileName) {
+            if (in_array($fileName, ['.', '..', '.DS_Store', '.temp'], true)) {
+                continue;
+            }
 
-        return $files;
+            $filePath = $directory.'/'.$fileName;
+
+            if (is_dir($filePath)) {
+                $this->processDirectory($filePath);
+            } else {
+                try {
+                    $file = exif_imagetype($filePath)
+                        ? new Image($filePath)
+                        : new Video($filePath);
+
+                    $this->copyFile($file, $filePath);
+                } catch (SortingPhotosException $exception) {
+                    $this->logger->warning($exception->getMessage());
+                } catch (\Throwable $throwable) {
+                    $this->logger->error(
+                        sprintf('[%s] %s', $throwable::class, $throwable->getMessage()),
+                        [
+                            'filePath' => $filePath,
+                            'fileName' => $fileName,
+                        ]
+                    );
+                }
+            }
+        }
     }
 
     private function makeDirIfNotExist(string $dir): void
@@ -107,14 +119,5 @@ final class Sorter
         if (!copy($sourceFile, $newFile)) {
             throw SortingPhotosException::notCopyFile($file->getName());
         }
-    }
-
-    private function getFilePath(string $fileName): string
-    {
-        return sprintf(
-            '%s/%s',
-            $this->catalogUnsortedPhotos,
-            $fileName
-        );
     }
 }

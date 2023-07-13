@@ -25,7 +25,7 @@ $unsortedPhotosDir = __DIR__.'/fotos';
 $copyToDir = __DIR__.'/sorted-fotos';
 
 try {
-    $sorter = new Sorter($unsortedPhotosDir, $copyToDir);
+    $sorter = new Sorter($unsortedPhotosDir, $copyToDir, $psrLogger);
     $sorter->process();
 } catch (Throwable $throwable) {
     printf("[%s] %s \n", $throwable::class, $throwable->getMessage());

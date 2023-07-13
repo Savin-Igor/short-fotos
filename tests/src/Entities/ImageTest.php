@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace SortingPhotosByDate\Tests\Entities;
 
 use Carbon\Carbon;
-use ReflectionClass;
 use PHPUnit\Framework\TestCase;
 use SortingPhotosByDate\Entities\Image;
 use SortingPhotosByDate\Exceptions\SortingPhotosException;
@@ -54,7 +53,7 @@ final class ImageTest extends TestCase
         $this->markTestSkipped('There is no file available without metadata');
         $invalidFile = getenv('DIRECTORY_OF_TEST_FILES').'/no_exif.jpg';
 
-        $reflection = new ReflectionClass(SortingPhotosException::class);
+        $reflection = new \ReflectionClass(SortingPhotosException::class);
         /**
          * @psalm-var string $message
          */

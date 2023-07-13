@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace SortingPhotosByDate\Tests\Services;
 
-use Exception;
-use ReflectionClass;
 use PHPUnit\Framework\TestCase;
 use SortingPhotosByDate\Services\Sorter;
 use SortingPhotosByDate\Exceptions\SortingPhotosException;
+use SortingPhotosByDate\Tests\Util\SimpleLogger;
 
 final class SorterTest extends TestCase
 {
@@ -17,7 +16,7 @@ final class SorterTest extends TestCase
         $dir = getenv('DIRECTORY_OF_TEST_FILES').'/a-non-existent-directory';
         $copyToDir = getenv('DIRECTORY_OF_TEST_FILES').'/copy-directory';
 
-        $reflection = new ReflectionClass(SortingPhotosException::class);
+        $reflection = new \ReflectionClass(SortingPhotosException::class);
         /**
          * @psalm-var string $message
          */
@@ -34,7 +33,7 @@ final class SorterTest extends TestCase
         $dir = getenv('DIRECTORY_OF_TEST_FILES').'/test-files';
         $copyToDir = getenv('DIRECTORY_OF_TEST_FILES').'/copy-directory';
 
-        $sorter = new Sorter($dir, $copyToDir);
+        $sorter = new Sorter($dir, $copyToDir, new SimpleLogger());
         $result = $sorter->process();
 
         $this->assertTrue($result);
@@ -49,7 +48,7 @@ final class SorterTest extends TestCase
         $copyToDir = getenv('DIRECTORY_OF_TEST_FILES').'/copy-directory';
 
         mkdir($dir, 0777);
-        $reflection = new ReflectionClass(SortingPhotosException::class);
+        $reflection = new \ReflectionClass(SortingPhotosException::class);
         /**
          * @psalm-var string $message
          */
@@ -59,8 +58,8 @@ final class SorterTest extends TestCase
         $this->expectErrorMessage(sprintf($message, $dir));
 
         try {
-            (new Sorter($dir, $copyToDir))->process();
-        } catch (Exception $exception) {
+            (new Sorter($dir, $copyToDir, new SimpleLogger()))->process();
+        } catch (\Exception $exception) {
             $this->rmDir($dir);
             $this->rmDir($copyToDir);
             throw $exception;
